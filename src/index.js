@@ -15,7 +15,7 @@ const store = createStore(movies);
 //   movies: [{ name: 'superman' }]
 // })
 
-// console.log('After Store', store.getState());
+
 
 
 ReactDOM.render(
