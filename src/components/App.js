@@ -15,14 +15,14 @@ class App extends React.Component {
     })
     store.dispatch(addMovies(data));
 
-    // console.log('state', this.props.store.getState());
+    console.log('state', this.props.store.getState());
 
   }
 
   isMovieFavourite = (movie) => {
-    const { favourites } = this.props.store.getState();
+    const { movies } = this.props.store.getState();
 
-    const index = favourites.indexOf(movie);
+    const index = movies.favourites.indexOf(movie);
 
     if (index !== -1) {
       return true;
@@ -40,7 +40,9 @@ class App extends React.Component {
     this.props.store.dispatch(setShowFavourite(val))
   }
   render() {
-    const { list, favourites, showFavourites } = this.props.store.getState();
+    const { movies } = this.props.store.getState();
+    // console.log(this.props.store.getState(), movies);
+    const { list, favourites, showFavourites } = movies;
     const displayMovies = showFavourites ? favourites : list;
     console.log('State', this.props.store.getState());
     return (
@@ -65,7 +67,6 @@ class App extends React.Component {
       </div>
     );
   }
-
 }
 
 export default App;
